@@ -13,7 +13,7 @@
     }
 }
 
-myAsyncFunc() */
+myAsyncFunc() 
 
 const createPromise = () => new Promise(function(resolve,reject){
     let randomBoolean = Math.random() >= 0.5;
@@ -45,19 +45,41 @@ peticion2.then(function(mensaje){
     console.log(error);
 });
 
-respuestaPeticion()
+respuestaPeticion()*/
 
-const protoniño = {
-    name:"",
-    age:0,
-    belleza:0,
-}
-const reproductor = ()=>{ 
-   const person = Object.create(protoniño)
-   return person
-}
-const niño1 = reproductor()
-niño1.name = "Noel"
-niño1.age = 28
-niño1.belleza = 98
 
+const sexApple = () => {
+    return parseInt(Math.random()*10)
+}
+    
+const creadorDeNiños = (name,age,belleza) => { 
+   return {
+    name:name,
+    age:age,
+    belleza:belleza,
+   }
+}
+const niño1 = creadorDeNiños("Noel",28,sexApple())
+console.log(niño1)
+
+const laProtoNiña = (gustosNiña) => new Promise(function(resolve,reject){
+    setTimeout(()=>{
+         if(niño1.belleza >= gustosNiña){
+             resolve ("si, si quiero ser tu novia")
+         }else{
+             reject("no, no eres mi tipo")
+         }
+    },3000);
+ })
+
+ const niña1 = laProtoNiña(7)
+
+ const seArmaONo= async() => {
+    try {
+        console.log(await niña1)
+    } catch (error) {
+        console.log(error)
+    }
+};
+
+seArmaONo()
